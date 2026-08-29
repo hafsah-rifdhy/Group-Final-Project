@@ -1,0 +1,224 @@
+[spirex-navbar] {
+  /* Navbar specific styles extracted from about.html inline rules */
+&.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5em;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0;
+  transition: var(--transition);
+}
+
+.nav-container {
+  width: 100%;
+  height: 74px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #030615;
+  gap: 25px;
+  padding: 1em 2em;
+}
+
+.brand-logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  color: var(--text-white);
+  font-weight: 800;
+  white-space: nowrap;
+  padding: 4px 8px 4px 4px;
+  border-radius: 14px;
+  transition: var(--transition);
+}
+
+.logo-wrap {
+  position: relative;
+  width: 158px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.logo-img {
+  position: relative;
+  width: 158px;
+  height: 80px;
+  max-width: none;
+  object-fit: contain;
+  z-index: 2;
+  display: block;
+}
+
+/* hide redundant brand text, keep logo only */
+&.navbar .brand-content {
+  display: none !important;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  height: 100%;
+}
+
+.nav-links a {
+  position: relative;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  background: var(--primary-gradient);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text-white);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+&.navbar .theme-toggle {
+  display: none;
+}
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-card);
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-3px);
+  background: var(--primary-gradient);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  color: var(--text-white);
+  font-size: 1.1rem;
+}
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 25px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: var(--transition);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+&.navbar .btn-primary {
+  min-width: 145px;
+  min-height: 58px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--primary-gradient);
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+/* helper for mobile open */
+.nav-links.open {
+  display: block;
+}
+
+@media (max-width: 768px) {
+
+  /* Use max-height transitions so background can animate to contain all items */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    background: #0b0f19fa;
+    position: absolute;
+    top: 74px;
+    left: 0px;
+    min-height: 300px;
+    padding: 0 12px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 280ms ease, padding 220ms ease;
+    z-index: 1100;
+  }
+
+  .nav-links.open {
+    /* when opened, JS will set an inline max-height; allow padding to appear */
+    padding: 12px;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 12px 8px;
+  }
+
+  /* Offset page content when the shared fixed navbar is present */
+  .has-shared-navbar main {
+    padding-top: 84px; /* a little extra spacing for breathing room */
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+
+  &.navbar .theme-toggle {
+    display: inline-flex;
+  }
+}
+}
