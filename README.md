@@ -1,2 +1,3 @@
-# Group-Final-Project
-Group-Final-Project
+# SpireX Final Project
+
+Group final project repository.
