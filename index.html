@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpireX Foundation — Learn. Build. Rise.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ambient background waves -->
+<div class="bg-waves" aria-hidden="true">
+  <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
+    <path class="wave wave-1" d="M0,600 C 300,520 500,700 800,620 C 1100,540 1300,660 1600,580 L1600,900 L0,900 Z"></path>
+    <path class="wave wave-2" d="M0,700 C 350,640 550,780 900,700 C 1150,640 1350,760 1600,700 L1600,900 L0,900 Z"></path>
+  </svg>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="brand">
+    
+     
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#programs">Internships</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+      <a href="#verify">Verify Certificate</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-primary btn-small" href="#join">Join Now</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2 L14 9 L21 12 L14 15 L12 22 L10 15 L3 12 L10 9 Z" fill="currentColor"/></svg> Unlock Your Potential</span>
+      <h1>Moto: <br>
+  Learn <span class="dot">•</span> Build <span class="dot">•</span> Rise
+</h1>
+      <p class="hero-sub">SpireX Foundation is a premium student skill development platform designed for the modern tech era. Master the stack, ship real work, and graduate with proof — not just promises.</p>
+      <div class="hero-actions">
+        <a href="#programs" class="btn btn-primary" id="exploreBtn">Explore Programs <span aria-hidden="true">→</span></a>
+        <a href="#about" class="btn btn-ghost">Learn More</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="visual-frame">
+        <div class="tile tile-a">
+          <span class="tile-label"></span>
+          <span class="tile-name"></span>
+        </div>
+        <div class="tile tile-b">
+          <span class="tile-label"></span>
+          <span class="tile-name"></span>
+        </div>
+        <div class="tile tile-c">
+          <span class="tile-label"></span>
+          <span class="tile-name"></span>
+        </div>
+        <div class="tile tile-d">
+          <span class="tile-label"></span>
+          <span class="tile-name"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROGRAMS / SERVICES / PROJECTS ================= -->
+  <section class="programs" id="programs">
+    <div class="section-head">
+      <span class="eyebrow eyebrow-alt">Explore Programs</span>
+      <h2>Programs / Services / Projects</h2>
+      <p class="section-sub">Real programs, real services, and real project work our student builders ship — browse the catalog or filter by track.</p>
+    </div>
+
+    <div class="filter-bar" id="filterBar" role="tablist" aria-label="Filter projects by category">
+      <button class="filter-chip is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter-chip" data-filter="web" role="tab" aria-selected="false">Web Development</button>
+      <button class="filter-chip" data-filter="app" role="tab" aria-selected="false">App Development</button>
+      <button class="filter-chip" data-filter="ai" role="tab" aria-selected="false">AI / ML</button>
+      <button class="filter-chip" data-filter="cloud" role="tab" aria-selected="false">Cloud &amp; DevOps</button>
+      <button class="filter-chip" data-filter="design" role="tab" aria-selected="false">UI / UX</button>
+    </div>
+
+    <div class="card-grid" id="cardGrid">
+      <!-- cards injected by script.js -->
+    </div>
+  </section>
+
+  <section class="cta" id="join">
+    <div class="cta-inner">
+      <h2>Ready to start your climb?</h2>
+      <p>Join the next cohort and turn your skill sheet into a portfolio.</p>
+      <a href="#programs" class="btn btn-primary">Join Now</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="footer-inner">
+    <div class="brand-text small">SpireX<em>Foundation</em></div>
+    <p>&copy; 2026 SpireX Foundation. Learn. Build. Rise.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
