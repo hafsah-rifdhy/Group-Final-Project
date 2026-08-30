@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpireX Foundation - Internships</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Navigation Header with Logo -->
+  <header class="top-header">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <img src="logo.png" alt="SpireX Foundation Logo" />
+      </a>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#internships" class="active-link">Internships</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+        <a href="#verify">Verify Certificate</a>
+      </nav>
+      <a href="#internships" class="nav-cta-btn">Join Now</a>
+    </div>
+  </header>
+
+  <!-- Internship Section -->
+  <section class="internship-section" id="internships">
+    <div class="glow-bg"></div>
+
+    <div class="container">
+      <!-- Section Header -->
+      <div class="section-header">
+        <span class="badge">✨ EMPOWER YOUR CAREER</span>
+        <h2 class="section-title">Industry-Ready <span class="gradient-text">Internship Programs</span></h2>
+        <p class="section-subtitle">
+          Gain hands-on experience, build real-world products, and earn recognized certifications with SpireX Foundation.
+        </p>
+      </div>
+
+      <!-- Key Program Highlights -->
+      <div class="program-stats-grid">
+        <div class="stat-card">
+          <h4>Mode</h4>
+          <p class="highlight-info">100% Virtual / Remote</p>
+        </div>
+        <div class="stat-card duration-stat-card">
+          <h4>Available Durations</h4>
+          <div class="duration-badges-wrap">
+            <span class="dur-pill p-1m">1 Month</span>
+            <span class="dur-pill p-2m">2 Months</span>
+            <span class="dur-pill p-3m">3 Months</span>
+            <span class="dur-pill p-6m">6 Months</span>
+            <span class="dur-pill p-12m">12 Months</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <h4>Eligibility</h4>
+          <p class="highlight-info">B.Tech / BCA / MCA / Any Graduate</p>
+        </div>
+        <div class="stat-card">
+          <h4>Perks</h4>
+          <p class="highlight-info">Certificate + LOR + Mentorship</p>
+        </div>
+      </div>
+
+      <!-- Domain Filter Tabs -->
+      <div class="filter-wrapper">
+        <button class="filter-btn active" data-filter="all">All Domains</button>
+        <button class="filter-btn" data-filter="web">Web & Full Stack</button>
+        <button class="filter-btn" data-filter="ai">AI & Data Science</button>
+        <button class="filter-btn" data-filter="cyber">Cybersecurity & Cloud</button>
+      </div>
+
+      <!-- Internship Cards Grid -->
+      <div class="cards-grid" id="programsGrid">
+        <!-- Card 1 -->
+        <div class="intern-card" data-category="web">
+          <div class="card-tag">Hot & Trending</div>
+          <h3>Full Stack Web Development</h3>
+          <p class="card-desc">Master frontend and backend with React, Node.js, Express, and MongoDB through live industry projects.</p>
+          
+          <div class="duration-container">
+            <label class="dur-label">Available Durations:</label>
+            <div class="card-durations">
+              <span class="dur-tag d-1">1 Month</span>
+              <span class="dur-tag d-2">2 Months</span>
+              <span class="dur-tag d-3">3 Months</span>
+              <span class="dur-tag d-6">6 Months</span>
+              <span class="dur-tag d-12">12 Months</span>
+            </div>
+          </div>
+
+          <div class="card-details">
+            <span>📍 Remote Mode</span>
+            <span>🎓 Beginner to Pro</span>
+          </div>
+          <div class="learning-outcomes">
+            <strong>Key Learnings:</strong>
+            <ul>
+              <li>REST API & Database architecture</li>
+              <li>Production deployment & CI/CD</li>
+            </ul>
+          </div>
+          <button class="apply-btn" onclick="openModal('Full Stack Web Development')">Apply Now &rarr;</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="intern-card" data-category="ai">
+          <div class="card-tag">In Demand</div>
+          <h3>AI & Machine Learning</h3>
+          <p class="card-desc">Build predictive models, neural networks, and computer vision pipelines using Python, PyTorch, and Scikit-Learn.</p>
+          
+          <div class="duration-container">
+            <label class="dur-label">Available Durations:</label>
+            <div class="card-durations">
+              <span class="dur-tag d-1">1 Month</span>
+              <span class="dur-tag d-2">2 Months</span>
+              <span class="dur-tag d-3">3 Months</span>
+              <span class="dur-tag d-6">6 Months</span>
+              <span class="dur-tag d-12">12 Months</span>
+            </div>
+          </div>
+
+          <div class="card-details">
+            <span>📍 Remote Mode</span>
+            <span>🎓 Basic Python Required</span>
+          </div>
+          <div class="learning-outcomes">
+            <strong>Key Learnings:</strong>
+            <ul>
+              <li>Supervised & Unsupervised Learning</li>
+              <li>LLM integration & GenAI APIs</li>
+            </ul>
+          </div>
+          <button class="apply-btn" onclick="openModal('AI & Machine Learning')">Apply Now &rarr;</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="intern-card" data-category="ai">
+          <div class="card-tag">Analytics</div>
+          <h3>Data Science & Analytics</h3>
+          <p class="card-desc">Extract insights from large datasets using SQL, Pandas, Tableau, and automated statistical dashboards.</p>
+          
+          <div class="duration-container">
+            <label class="dur-label">Available Durations:</label>
+            <div class="card-durations">
+              <span class="dur-tag d-1">1 Month</span>
+              <span class="dur-tag d-2">2 Months</span>
+              <span class="dur-tag d-3">3 Months</span>
+              <span class="dur-tag d-6">6 Months</span>
+              <span class="dur-tag d-12">12 Months</span>
+            </div>
+          </div>
+
+          <div class="card-details">
+            <span>📍 Remote Mode</span>
+            <span>🎓 Open to All</span>
+          </div>
+          <div class="learning-outcomes">
+            <strong>Key Learnings:</strong>
+            <ul>
+              <li>Exploratory Data Analysis (EDA)</li>
+              <li>BI Dashboarding & Storytelling</li>
+            </ul>
+          </div>
+          <button class="apply-btn" onclick="openModal('Data Science & Analytics')">Apply Now &rarr;</button>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="intern-card" data-category="cyber">
+          <div class="card-tag">Security</div>
+          <h3>Cybersecurity & Ethical Hacking</h3>
+          <p class="card-desc">Learn network vulnerability analysis, web application penetration testing, and security fundamentals.</p>
+          
+          <div class="duration-container">
+            <label class="dur-label">Available Durations:</label>
+            <div class="card-durations">
+              <span class="dur-tag d-1">1 Month</span>
+              <span class="dur-tag d-2">2 Months</span>
+              <span class="dur-tag d-3">3 Months</span>
+              <span class="dur-tag d-6">6 Months</span>
+              <span class="dur-tag d-12">12 Months</span>
+            </div>
+          </div>
+
+          <div class="card-details">
+            <span>📍 Remote Mode</span>
+            <span>🎓 Computer Basics</span>
+          </div>
+          <div class="learning-outcomes">
+            <strong>Key Learnings:</strong>
+            <ul>
+              <li>OWASP Top 10 vulnerabilities</li>
+              <li>Network threat hunting & Wireshark</li>
+            </ul>
+          </div>
+          <button class="apply-btn" onclick="openModal('Cybersecurity & Ethical Hacking')">Apply Now &rarr;</button>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="intern-card" data-category="web">
+          <div class="card-tag">UI/UX</div>
+          <h3>UI/UX & Frontend Design</h3>
+          <p class="card-desc">Design modern web apps using Figma, wireframing, design systems, Tailwind CSS, and Next.js.</p>
+          
+          <div class="duration-container">
+            <label class="dur-label">Available Durations:</label>
+            <div class="card-durations">
+              <span class="dur-tag d-1">1 Month</span>
+              <span class="dur-tag d-2">2 Months</span>
+              <span class="dur-tag d-3">3 Months</span>
+              <span class="dur-tag d-6">6 Months</span>
+              <span class="dur-tag d-12">12 Months</span>
+            </div>
+          </div>
+
+          <div class="card-details">
+            <span>📍 Remote Mode</span>
+            <span>🎓 Creative Mindset</span>
+          </div>
+          <div class="learning-outcomes">
+            <strong>Key Learnings:</strong>
+            <ul>
+              <li>User persona & prototype testing</li>
+              <li>Design-to-code implementation</li>
+            </ul>
+          </div>
+          <button class="apply-btn" onclick="openModal('UI/UX & Frontend Design')">Apply Now &rarr;</button>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="intern-card" data-category="cyber">
+          <div class="card-tag">Cloud</div>
+          <h3>Cloud Computing & DevOps</h3>
+          <p class="card-desc">Understand AWS fundamentals, Docker containerization, Kubernetes basics, and Linux server management.</p>
+          
+          <div class="duration-container">
+            <label class="dur-label">Available Durations:</label>
+            <div class="card-durations">
+              <span class="dur-tag d-1">1 Month</span>
+              <span class="dur-tag d-2">2 Months</span>
+              <span class="dur-tag d-3">3 Months</span>
+              <span class="dur-tag d-6">6 Months</span>
+              <span class="dur-tag d-12">12 Months</span>
+            </div>
+          </div>
+
+          <div class="card-details">
+            <span>📍 Remote Mode</span>
+            <span>🎓 CS Fundamentals</span>
+          </div>
+          <div class="learning-outcomes">
+            <strong>Key Learnings:</strong>
+            <ul>
+              <li>Container orchestration & Docker</li>
+              <li>AWS EC2, S3 & Cloud Architecture</li>
+            </ul>
+          </div>
+          <button class="apply-btn" onclick="openModal('Cloud Computing & DevOps')">Apply Now &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Benefits & Outcomes -->
+      <div class="benefits-container">
+        <h3 class="benefits-heading">Why Choose SpireX Foundation Internships?</h3>
+        <div class="benefits-grid">
+          <div class="benefit-box">
+            <div class="icon">📜</div>
+            <h4>Verified Certificate</h4>
+            <p>Receive an authentic, QR-verifiable certificate upon completing tasks.</p>
+          </div>
+          <div class="benefit-box">
+            <div class="icon">💼</div>
+            <h4>Letter of Recommendation</h4>
+            <p>Top performers earn a distinguished LOR for their career portfolio.</p>
+          </div>
+          <div class="benefit-box">
+            <div class="icon">🚀</div>
+            <h4>Real-world Projects</h4>
+            <p>Tackle capstone assignments simulating actual corporate challenges.</p>
+          </div>
+          <div class="benefit-box">
+            <div class="icon">👥</div>
+            <h4>Mentor Support</h4>
+            <p>Dedicated community assistance to troubleshoot errors and review code.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Modal Form -->
+  <div class="modal-overlay" id="applyModal">
+    <div class="modal-card">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <h3>Apply for <span id="modalDomainTitle">Internship</span></h3>
+      <p class="modal-subtitle">Fill in your details below to submit your application.</p>
+
+      <form id="internshipForm" novalidate>
+        <input type="hidden" id="selectedDomain" name="domain" />
+
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input type="text" id="fullName" placeholder="e.g. John Doe" />
+          <small class="error-msg" id="nameError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="e.g. john@example.com" />
+          <small class="error-msg" id="emailError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone / WhatsApp Number *</label>
+          <input type="tel" id="phone" placeholder="e.g. 9876543210" />
+          <small class="error-msg" id="phoneError"></small>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="college">College / University *</label>
+            <input type="text" id="college" placeholder="College Name" />
+            <small class="error-msg" id="collegeError"></small>
+          </div>
+          <div class="form-group">
+            <label for="duration">Select Duration *</label>
+            <select id="duration" class="styled-select">
+              <option value="1_month">1 Month</option>
+              <option value="2_months">2 Months</option>
+              <option value="3_months">3 Months</option>
+              <option value="6_months">6 Months</option>
+              <option value="12_months">12 Months</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="github">LinkedIn / GitHub Profile (Optional)</label>
+          <input type="url" id="github" placeholder="https://..." />
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Notification -->
+  <div class="toast" id="toastNotification">
+    🎉 Application submitted successfully! Welcome to SpireX.
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
