@@ -10,7 +10,7 @@
     '/index.html': 'nav-home',
     '/': 'nav-home',
     'about.html': 'nav-about',
-    'programs.html': 'nav-internships',
+    'programs.html': 'nav-programs',
     'internships.html': 'nav-internships',
     'team.html': 'nav-team',
     'contact.html': 'nav-contact',
@@ -26,25 +26,70 @@
       const res = await fetch('navbar.html');
       if (!res.ok) return;
       const html = await res.text();
-      container.innerHTML = html;
-      // mark the document so CSS can offset content below the fixed navbar
-      try { document.body.classList.add('has-shared-navbar'); } catch (e) {}
-      initNavbar();
+      const shadowRoot = container.shadowRoot || container.attachShadow({ mode: 'open' });
+      shadowRoot.innerHTML = '';
+
+      const styleLink = document.createElement('link');
+      styleLink.rel = 'stylesheet';
+      styleLink.href = 'css/navbar.css';
+
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = html.trim();
+
+      shadowRoot.appendChild(styleLink);
+      while (wrapper.firstChild) {
+        shadowRoot.appendChild(wrapper.firstChild);
+      }
+
+      container.style.position = 'fixed';
+      container.style.top = '0';
+      container.style.left = '0';
+      container.style.right = '0';
+      container.style.zIndex = '1000';
+      container.style.display = 'block';
+
+      syncNavbarOffset(container, shadowRoot);
+      initNavbar(shadowRoot, container);
     } catch (e) {
       // silently fail — keep original behavior if any other script handles navbar
       console.error('Failed to load navbar:', e);
     }
   }
 
-  function initNavbar() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
+  function syncNavbarOffset(container, shadowRoot) {
+    const basePaddingTop = parseFloat(getComputedStyle(document.body).paddingTop) || 0;
+
+    function update() {
+      const navBar = shadowRoot.querySelector('.navbar');
+      if (!navBar) return;
+
+      const height = Math.ceil(navBar.getBoundingClientRect().height || navBar.offsetHeight || 74);
+      container.style.height = height + 'px';
+      document.body.style.paddingTop = basePaddingTop + height + 'px';
+    }
+
+    update();
+
+    if (typeof ResizeObserver !== 'undefined') {
+      const navBar = shadowRoot.querySelector('.navbar');
+      if (navBar) {
+        const observer = new ResizeObserver(update);
+        observer.observe(navBar);
+      }
+    }
+
+    window.addEventListener('resize', update);
+  }
+
+  function initNavbar(shadowRoot, container) {
+    const menuToggle = shadowRoot.querySelector('#menuToggle');
+    const navLinks = shadowRoot.querySelector('#navLinks');
     if (menuToggle && navLinks) {
       function openMenu() {
         menuToggle.setAttribute('aria-expanded', 'true');
         navLinks.classList.add('open');
         // compute available height and set maxHeight so background covers items
-        var available = Math.max(0, window.innerHeight - (navLinks.getBoundingClientRect().top + 16));
+        var available = Math.max(0, window.innerHeight - (container.getBoundingClientRect().top + 16));
         var desired = navLinks.scrollHeight + 24; // include padding
         var finalH = Math.min(desired, available);
         navLinks.style.maxHeight = finalH + 'px';
@@ -73,7 +118,7 @@
           closeMenu();
         } else if (navLinks.classList.contains('open')) {
           // recompute maxHeight
-          var available = Math.max(0, window.innerHeight - (navLinks.getBoundingClientRect().top + 16));
+          var available = Math.max(0, window.innerHeight - (container.getBoundingClientRect().top + 16));
           var desired = navLinks.scrollHeight + 24;
           var finalH = Math.min(desired, available);
           navLinks.style.maxHeight = finalH + 'px';
@@ -91,7 +136,7 @@
       });
     }
 
-    const themeToggle = document.getElementById('themeToggle');
+    const themeToggle = shadowRoot.querySelector('#themeToggle');
     if (themeToggle) {
       themeToggle.addEventListener('click', function () {
         document.documentElement.classList.toggle('light-mode');
@@ -128,9 +173,9 @@
 
         if (bestId) {
           // clear any existing active class
-          var links = document.querySelectorAll('#navLinks a');
+          var links = shadowRoot.querySelectorAll('#navLinks a');
           links.forEach(function (a) { a.classList.remove('active'); });
-          var el = document.getElementById(bestId);
+          var el = shadowRoot.getElementById ? shadowRoot.getElementById(bestId) : shadowRoot.querySelector('#' + bestId);
           if (el) el.classList.add('active');
         }
       } catch (e) {
